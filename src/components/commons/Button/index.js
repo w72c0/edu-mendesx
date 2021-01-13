@@ -1,22 +1,22 @@
-import styled, { css } from 'styled-components'
-import get from 'lodash/get'
+import styled, { css } from 'styled-components';
+import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { propToStyle } from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
-    color: ${(props)=> get(props.theme, `colors.${props.variant}.color`)};
+    color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
     background: transparent;
 `;
 
 const ButtonDefault = css`
     color: white;
-    background-color: ${function(props){
-        return get(props.theme, `colors.${props.variant}.color`)
-    }};
-    color: ${function(props){
-        return get(props.theme, `colors.${props.variant}.contrastText`)
-    }};
+    background-color: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.color`);
+  }};
+    color: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.contrastText`);
+  }};
 `;
 
 export const Button = styled.button`
@@ -28,14 +28,12 @@ export const Button = styled.button`
     border-radius: 8px;
 
     ${TextStyleVariantsMap.smallestException}
-    ${function(props){
-        // console.log('props',props.ghost)
-        // console.log('<Button />',props.variant, props.theme, get(props.theme, `colors.${props.variant}.color`))
-        if(props.ghost){
-            return ButtonGhost;
-        }
-        return ButtonDefault
-    }}
+    ${function (props) {
+    if (props.ghost) {
+      return ButtonGhost;
+    }
+    return ButtonDefault;
+  }}
     transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${(props) => props.theme.borderRadius};
     &:hover,
@@ -44,13 +42,13 @@ export const Button = styled.button`
     }
 
     ${breakpointsMedia({
-       xs: css`
+    xs: css`
         ${TextStyleVariantsMap.smallestException}
-       `, 
-       md: css`
+       `,
+    md: css`
         ${TextStyleVariantsMap.paragraph1}
        `,
-    })}
+  })}
 
     ${propToStyle('margin')}
     ${propToStyle('display')}

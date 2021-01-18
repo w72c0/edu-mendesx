@@ -1,4 +1,4 @@
-export const typographyVariants = {
+const typographyVariants = {
   // [title]
   title: {
     fontSize: '32px',
@@ -30,8 +30,10 @@ export const typographyVariants = {
   },
   // [smallestException]
   smallestException: {
-    fontSize: '12px',
+    fontSize: '14px',
     fontWeight: '400',
     lineHeight: 1, // 100%
   },
 };
+
+export { typographyVariants as default };

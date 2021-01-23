@@ -5,12 +5,15 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
 import Box from '../src/components/foundation/layout/Box';
+import Modal from '../src/components/commons/Modal';
 
 export default function Home() {
+  const [isModalOpen, setModalState] = React.useState(false);
+
   return (
     <Box
       cssinline={{
-        flex: '2',
+        flex: '1',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -23,6 +26,26 @@ export default function Home() {
         },
       }}
     >
+      {/* { isModalOpen && <Modal /> } */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setModalState(false);
+        }}
+      >
+        {(propsDoModal) => (
+          <Box
+            cssinline={{
+              backgroundColor: 'white',
+            }}
+            {...propsDoModal}
+          >
+            <div>
+              Nosso conteudo pro modal
+            </div>
+          </Box>
+        )}
+      </Modal>
       <Menu />
 
       <Grid.Container>
@@ -79,6 +102,10 @@ export default function Home() {
             </Text>
 
             <Button
+              onClick={() => {
+                // isModalOpen = true;
+                setModalState(!isModalOpen);
+              }}
               variant="primary.main"
               cssinline={{
                 margin: {

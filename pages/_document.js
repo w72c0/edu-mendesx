@@ -9,12 +9,8 @@ export default class MyDocument extends Document {
 
     try {
       ctx.renderPage = () => originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(
-          <App
-          // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
-          />,
-        ),
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
       });
 
       const initialProps = await Document.getInitialProps(ctx);

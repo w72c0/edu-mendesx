@@ -1,8 +1,17 @@
 import styled from 'styled-components';
-import cssInline from '../../../../theme/utils/cssInline';
+import { propToStyle } from '../../../../theme/utils/propToStyle';
 
 const Box = styled.div`
-    ${cssInline}
+  ${propToStyle('flex')}
+  ${propToStyle('display')}
+  ${propToStyle('flexDirection')}
+  ${propToStyle('justifyContent')}
+  ${propToStyle('flexWrap')}
+  ${propToStyle('backgroundColor')}
+  ${propToStyle('backgroundImage')}
+  ${propToStyle('backgroundRepeat')}
+  ${propToStyle('backgroundPosition')}
+  ${propToStyle('boxShadow')}
+  ${propToStyle('padding')}
 `;
-
 export { Box as default };

@@ -22,15 +22,6 @@ export default function Home() {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      {/*
-        [SOLID]
-        S = Single Responsability
-        O = Open Closed
-        L = Liskov Substitution
-        I = Interface Segregation
-        D = Dependency Inversion
-      */}
-      {/* {isModalOpen && <Modal />} */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => {

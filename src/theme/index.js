@@ -1,4 +1,4 @@
-import typographyVariants from './typographyVariants';
+import { typographyVariants } from './typographyVariants';
 
 const colors = {
   background: {
@@ -37,41 +37,7 @@ const colors = {
     },
   },
   modes: {
-    dark: {
-      // background: {
-      //   dark: {
-      //     color: '#030506',
-      //   },
-      //   main: '#030506',
-      // },
-      // borders: {
-      //   main: {
-      //     color: '#181F22',
-      //   },
-      // },
-      // primary: {
-      //   main: {
-      //     color: '##F27895',
-      //     contrastText: '#000',
-      //   },
-      // },
-      // secondary: {
-      //   main: {
-      //     color: '#FFA59A',
-      //     contrastText: '#000',
-      //   },
-      // },
-      // tertiary: {
-      //   main: {
-      //     color: '#D5D5D5',
-      //     contrastText: '#000',
-      //   },
-      //   dar: {
-      //     color: '#FFFFFF',
-      //     contrastText: '#000',
-      //   },
-      // },
-    },
+    dark: {},
   },
 };
 

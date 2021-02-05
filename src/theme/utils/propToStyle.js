@@ -1,13 +1,13 @@
-import breakpointsMedia from './breakpointsMedia';
+import { breakpointsMedia } from './breakpointsMedia';
 
-export default function propToStyle(propName) {
-  // eslint-disable-next-line consistent-return
+export function propToStyle(propName) {
   return (props) => {
-    const propValue = props.cssinline[propName];
+    const propValue = props[propName];
 
-    if (typeof propValue === 'string') {
+    if (typeof propValue === 'string' || typeof propValue === 'number') {
       return {
-        [propName]: props.cssinline[propName],
+        // textAlign: props.textAlign
+        [propName]: propValue,
       };
     }
 
@@ -30,5 +30,7 @@ export default function propToStyle(propName) {
         },
       });
     }
+
+    return {};
   };
 }

@@ -1,4 +1,3 @@
-
 module.exports = {
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     moduleDirectories: [
@@ -10,5 +9,6 @@ module.exports = {
       '<rootDir>/cypress/',
       '<rootDir>/dist/',
     ],
+    testEnvironment: 'jsdom',
   };
   

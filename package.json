@@ -34,7 +34,8 @@
     "set-value": "^4.1.0",
     "styled-components": "^5.2.3",
     "styled-normalize": "^8.0.7",
-    "yarn": "^1.22.11"
+    "yarn": "^1.22.11",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@cypress/eslint-plugin-dev": "^5.1.0",

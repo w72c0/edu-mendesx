@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Link from '../../src/components/commons/Link';
 import Box from '../../src/components/foundation/layout/Box';

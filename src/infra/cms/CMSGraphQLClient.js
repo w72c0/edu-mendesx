@@ -21,6 +21,9 @@ export function CMSGraphQLClient({ preview } = { preview: false }) {
         data: {
           messages,
         },
+        error: {
+          err: {},
+        },
       };
     },
   };

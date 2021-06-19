@@ -1,84 +1,80 @@
-# Example app with styled-components
+# INSTALURA
+## Projeto desenvolvido no Bootcamp de Front-End Avançado da Alura - 2021
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+## 💻 Sobre
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+O projeto é uma replica do Instagram, criado com React, Next/js e styled-components. Desenvolvido durante o Bootcamp Front-End Avançado da Alura.
+<br />
+---
 
-## Preview
+### Módulos do Bootcamp
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+    [x] Módulo 01: JAMStack e layout com React
+    [x] Módulo 02: State e Forms + boas práticas de Git e GitHub
+    [x] Módulo 03: Se aprofundando no NextJS
+    [x] Módulo 04: Testes com Cypress, Jest e React Testing Library
+    [x] Módulo 05: Área autenticada e gerenciador de conteúdo (CMS)
+    [x] Módulo 06: Storybook + TypeScript
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+<br />
+# 👩‍💻 Linguagens
 
-## Deploy your own
+![html5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![css3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
 
-## How to use
+# 🧰 Tecnologias
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+[![Nodejs Badge](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![NPM Badge](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![React Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://pt-br.reactjs.org)
+[![Nextjs Badge](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![GraphQL Badge](https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white)](https://graphql.org)
+<br />
+---
+## 📺 Imagem
+
+<a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer" title="Pagina inicial Site Instalura"><img src="https://i.postimg.cc/sDzsFmrv/homepage-Desktop-1.png" alt="Pagina inicial Instalura" width="600" height=""/> </a>
+<br>
+---
+   
+
+## Siga os passos abaixo para baixar o código
+
+  
+
+01. Baixe o projeto pelo terminal:
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+
+git clone https://github.com/edu-mendes/instalura-base
+
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+  
 
-### Try it on CodeSandbox
+02. Instale as dependências com o package manager de sua preferência (certifique-se que se encontra na mesma pasta do package.json)
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+```bash
 
-### Notes
+npm install
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
 ```
 
-**pages/index.js**
+  
 
-```javascript
-import StyledLink from '../components/StyledLink'
+03. Inicie o projeto com o package manager
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
+```bash
+
+npm run dev
+
+
 ```
 
-</details>
+  
+
+04. Acesse http://localhost:3000/ para navegar pelo site.

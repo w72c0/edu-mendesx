@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-console */
 import React from 'react';
 
 function formatErrors(yupErrorsInner = []) {

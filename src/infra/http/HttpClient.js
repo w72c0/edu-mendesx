@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export async function HttpClient(url, { headers, body, ...options }) {
+export default async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
     headers: {
       ...headers,

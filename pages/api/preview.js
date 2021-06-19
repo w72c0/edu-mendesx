@@ -1,13 +1,14 @@
 export default function handler(req, res) {
-    res.setPreviewData({});
+  res.setPreviewData({});
 
-    const key = 'BIRMAN';
+  const key = 'BIRMAN';
 
-    if (req.query.key !== key){
-        return res.status(401).json({ message: 'Invalid Key to enable preview' })
-    }
+  if (req.query.key !== key) {
+    res.clearPreviewData({});
+    return res.status(401).json({ message: 'Invalid Key to enable preview' });
+  }
 
-    res.writeHead(307, { location: '/'});
+  res.writeHead(307, { location: '/' });
 
-    return res.end();
-} 
+  return res.end();
+}

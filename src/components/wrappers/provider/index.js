@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../../../theme';
-import { GlobalStyle } from '../../../../theme/GlobalStyle';
+import theme from '../../../theme';
+import { GlobalStyle } from '../../../theme/GlobalStyle';
 
 export default function WebsiteGlobalProvider({ children }) {
   return (

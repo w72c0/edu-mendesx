@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import get from 'lodash/get';
@@ -8,8 +11,9 @@ import Modal from '../../commons/Modal';
 import Box from '../../foundation/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
-
+import LoggedMenu from '../../commons/LoggedMenu';
 import { WebsitePageContext } from './context';
+import LoggedMenuFooter from '../../commons/LoggedMenuFooter';
 
 export { WebsitePageContext } from './context';
 
@@ -21,11 +25,9 @@ export default function WebsitePageWrapper({
   messages,
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
-
   return (
     <WebsitePageContext.Provider
       value={{
-        teste: true,
         toggleModalCadastro: () => {
           setModalState(!isModalOpen);
         },
@@ -57,7 +59,13 @@ export default function WebsitePageWrapper({
             onCadastrarClick={() => setModalState(true)}
           />
         )}
+        {menuProps.logged && (
+          <LoggedMenu />
+        )}
         {children}
+        {menuProps.logged && (
+          <LoggedMenuFooter />
+        )}
         <Footer />
       </Box>
     </WebsitePageContext.Provider>
@@ -69,8 +77,10 @@ WebsitePageWrapper.defaultProps = {
   pageBoxProps: {},
   menuProps: {
     display: true,
+    logged: false,
   },
   messages: {},
+  profileProps: {},
 };
 
 WebsitePageWrapper.propTypes = {

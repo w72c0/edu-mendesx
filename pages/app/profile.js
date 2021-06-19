@@ -1,19 +1,12 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/named */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
-import { authService } from '../../src/services/auth/authService';
-import { userService } from '../../src/services/user/userService';
-
-export default function ProfilePage(props) {
-  return (
-    <div>
-      Página de Profile!
-      <pre>
-        {JSON.stringify(props, null, 4)}
-      </pre>
-      <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
-    </div>
-  );
-}
+import ProfileScreen from '../../src/components/screens/ProfileScreen';
+import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
+import authService from '../../src/services/auth/authService';
+import userService from '../../src/services/user/userService';
 
 export async function getServerSideProps(ctx) {
   const auth = authService(ctx);
@@ -33,10 +26,25 @@ export async function getServerSideProps(ctx) {
     };
   }
 
-  ctx.res.writeHead(307, { location: '/login' });
+  ctx.res.writeHead(307, { location: '/login/' });
   ctx.res.end();
 
   return {
     props: {},
   };
 }
+
+export default websiteUserPageHOC(ProfileScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Perfil',
+    },
+    menuProps: {
+      display: false,
+      logged: true,
+    },
+    pageBoxProps: {
+      backgroundColor: '#E5E5E5',
+    },
+  },
+});

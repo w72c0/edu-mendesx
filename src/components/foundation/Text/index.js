@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -8,16 +9,6 @@ import Link from '../../commons/Link';
 import { WebsitePageContext } from '../../wrappers/WebsitePage/context';
 
 export const TextStyleVariantsMap = {
-  paragraph1: css`
-    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
-    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
-    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
-  `,
-  smallestException: css`
-    font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
-    font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
-    line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
-  `,
   title: css`
     ${({ theme }) => css`
       font-size: ${theme.typographyVariants.titleXS.fontSize};
@@ -34,10 +25,89 @@ export const TextStyleVariantsMap = {
       `,
   })}
   `,
+  subTitle: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.subTitleXS.fontSize};
+      font-weight: ${theme.typographyVariants.subTitleXS.fontWeight};
+      line-height: ${theme.typographyVariants.subTitleXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.subTitle.fontSize};
+          font-weight: ${theme.typographyVariants.subTitle.fontWeight};
+          line-height: ${theme.typographyVariants.subTitle.lineHeight};
+        `}
+      `,
+  })}
+  `,
+  paragraph1: css`
+    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
+  `,
+  paragraph2: css`
+    font-size: ${({ theme }) => theme.typographyVariants.paragraph2.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.paragraph2.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.paragraph2.lineHeight};
+  `,
+  smallestException: css`
+    font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
+  `,
+  profileTitle: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.profileTitleXS.fontSize};
+      font-weight: ${theme.typographyVariants.profileTitleXS.fontWeight};
+      line-height: ${theme.typographyVariants.profileTitleXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.profileTitle.fontSize};
+          font-weight: ${theme.typographyVariants.profileTitle.fontWeight};
+          line-height: ${theme.typographyVariants.profileTitle.lineHeight};
+        `}
+      `,
+  })}
+  `,
+  profileInfo: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.profileInfoXS.fontSize};
+      font-weight: ${theme.typographyVariants.profileInfoXS.fontWeight};
+      line-height: ${theme.typographyVariants.profileInfoXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.profileInfo.fontSize};
+          font-weight: ${theme.typographyVariants.profileInfo.fontWeight};
+          line-height: ${theme.typographyVariants.profileInfo.lineHeight};
+        `}
+      `,
+  })}
+  `,
+  profileBio: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.profileBioXS.fontSize};
+      font-weight: ${theme.typographyVariants.profileBioXS.fontWeight};
+      line-height: ${theme.typographyVariants.profileBioXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.profileBio.fontSize};
+          font-weight: ${theme.typographyVariants.profileBio.fontWeight};
+          line-height: ${theme.typographyVariants.profileBio.lineHeight};
+        `}
+      `,
+  })}
+  `,
 };
 
 const TextBase = styled.span`
-  ${(props) => TextStyleVariantsMap[props.variant]}
+  ${({ variant }) => TextStyleVariantsMap[variant]}
   color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
   ${propToStyle('textAlign')}
   ${propToStyle('marginBottom')}
@@ -58,38 +128,43 @@ export default function Text({
     ? websitePageContext.getCMSContent(cmsKey)
     : children;
 
-  if (href) {
-    return (
+  return href
+    ? (
       <TextBase
         as={Link}
         variant={variant}
         href={href}
-      // eslint-disable-next-line react/jsx-props-no-spreading
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
-         {componentContent}
+        {componentContent}
+      </TextBase>
+    )
+    : (
+      <TextBase
+        as={tag}
+        variant={variant}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {componentContent}
       </TextBase>
     );
-  }
-
-  return (
-    <TextBase
-      as={tag}
-      variant={variant}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
-      // style
-      // className
-      // e ai vai
-    >
-       {componentContent}
-    </TextBase>
-  );
 }
 
 Text.propTypes = {
-  tag: PropTypes.string,
-  variant: PropTypes.string,
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'input']),
+  variant: PropTypes.oneOf([
+    'paragraph1',
+    'paragraph2',
+    'title',
+    'titleXS',
+    'smallestException',
+    'subTitle',
+    'profileBio',
+    'profileInfo',
+    'profileTitle',
+  ]),
   children: PropTypes.node,
   href: PropTypes.string,
   cmsKey: PropTypes.string,

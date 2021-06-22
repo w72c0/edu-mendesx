@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle, css } from 'styled-components';
@@ -67,6 +68,7 @@ function Modal({ isOpen, onClose, children }) {
         style={{
           display: 'flex',
           flex: 1,
+          position: 'relative',
         }}
       >
         {children({

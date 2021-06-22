@@ -1,12 +1,12 @@
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-
 import WebsitePageWrapper from '..';
-import WebsiteGlobalProvider from '../provider';
+import WebsiteGlobalProvider from '../../provider';
 
-export default function websitePageHOC(
+export default function LoginPageHOC(
   PageComponent,
   { pageWrapperProps } = { pageWrapperProps: {} },
 ) {

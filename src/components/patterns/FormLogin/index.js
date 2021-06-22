@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -80,9 +81,9 @@ export default function LoginForm({ onSubmit }) {
       >
         Entrar
       </Button>
-      <pre>
+      {/* <pre>
         {JSON.stringify(form.touched, null, 4)}
-      </pre>
+      </pre> */}
     </form>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';

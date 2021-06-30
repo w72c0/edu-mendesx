@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -10,9 +9,9 @@ import { loginService } from '../../../services/login/loginService';
 
 const loginSchema = yup.object().shape({
   usuario: yup
-  .string().required('"Usuário" é obrigatório').min(3, 'Preencha ao menos 3 caracteres'),
+    .string().required('"Usuário" é obrigatório').min(3, 'Preencha ao menos 3 caracteres'),
   senha: yup.string().min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
-})
+});
 
 export default function LoginForm({ onSubmit }) {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Text from '../../foundation/Text';
 
@@ -39,7 +39,6 @@ export default function TextField({
 }) {
   const hasError = Boolean(error);
   const isFieldInvalid = hasError && isTouched;
-
 
   return (
     <InputWrapper>

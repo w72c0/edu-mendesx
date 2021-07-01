@@ -2,7 +2,6 @@
 /* eslint-disable import/named */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
 import ProfileScreen from '../../src/components/screens/ProfileScreen';
 import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
 import authService from '../../src/services/auth/authService';

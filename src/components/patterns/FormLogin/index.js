@@ -25,14 +25,14 @@ export default function LoginForm({ onSubmit }) {
     onSubmit: (values) => {
       form.setIsFormDisabled(true);
       loginService.login({
-        username: values.usuario, // 'omariosouto'
-        password: values.senha, // 'senhasegura'
+        username: values.usuario,
+        password: values.senha,
       })
         .then(() => {
           router.push('/app/profile');
         })
         .catch((err) => {
-          // Desafio: Mostrar o erro na tela
+          // eslint-disable-next-line no-console
           console.error(err);
         })
         .finally(() => {
